@@ -1,18 +1,20 @@
 import m from 'mithril';
 
-import Layout from './views/layout';
-import groups from './views/GroupList';
+import GroupList from './views/GroupList';
+import GroupView from './views/GroupView';
+import Layout from './views/Layout';
 
 
 m.route(document.body, '/', {
     '/': {
         render: function () {
-            return m(Layout, groups())
+            console.log('/');
+            return m(Layout, m(GroupList))
         }
     },
-    '/groups/:group': {
+    '/groups/:id': {
         render: function (vnode) {
-            return m(Layout)
+            return m(Layout, m(GroupView, vnode.attrs))
         }
     }
 });

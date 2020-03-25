@@ -4,6 +4,7 @@ import Router from 'router';
 import fs from 'fs';
 import fh from 'finalhandler';
 import path from 'path';
+import cors from 'cors';
 
 const router = new Router();
 
@@ -24,6 +25,7 @@ const header = {
     'html': {'Content-Type': 'text/html'},
     'css': {'Content-Type': 'text/css'},
     'js': {'Content-Type': 'text/javascript'},
+    'json': {'Content-Type': 'application/json'},
 };
 
 const template_path = dir['html'];
@@ -36,6 +38,7 @@ function staticResponder(url, type, response) {
     response.writeHead(200, header[type]);
     fs.createReadStream(`${dir[type]}/${file}`).pipe(response);
 }
+router.use(cors());
 
 router.get('/', (request, response) => {
     response.writeHead(200, header['html']);
@@ -54,6 +57,12 @@ router.get(pattern['img'], (request, response) => {
     // const ext = path.extname(file);
     staticResponder(request.url, 'img', response);
 })
+router.get('/api/groups', (request, response) => {
+    response.writeHead(200, header['json']);
+    fs.createReadStream('./db.json').pipe(response);
+
+});
+
 function route (request, response) {
     router(request, response, fh(request, response));
 };

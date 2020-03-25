@@ -55,6 +55,7 @@
     "webpack-dev-server": "^3.10.3"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "finalhandler": "^1.1.2",
     "mithril": "^2.0.4",

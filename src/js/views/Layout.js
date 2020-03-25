@@ -1,5 +1,5 @@
 import m from 'mithril';
-import navbar from './navbar';
+import Navbar from './Navbar';
 
 const main = function (vnode) {
     return m('.container', vnode.children)
@@ -8,10 +8,10 @@ const main = function (vnode) {
 const layout = {
     view: function(vnode) {
         return [
-            navbar.navLoad(),
+            Navbar.nav(),
             main(vnode)
         ]
     }
-}
+};
 
 export default layout;

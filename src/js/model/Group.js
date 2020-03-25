@@ -1,11 +1,19 @@
 import m from 'mithril';
-import fs from 'fs';
+
+const url = 'https://localhost:8000';
 
 const Group = {
     list: [],
     loadList: function () {
-        const groups =  JSON.parse(fs.readFileSync('./db.json'));
-        Group.list = groups.groups;
+        m.request({
+            method: 'GET',
+            url: url + '/api/groups',
+            withCredentials: false
+        })
+        .then((data) => {
+            Group.list = data.groups;
+        })
+        .catch((error) => console.log(error));
     }
 }
 
