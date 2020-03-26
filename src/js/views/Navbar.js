@@ -9,24 +9,20 @@ const navbar = {
         }
     ],
     nav: function () {
-        const address = {
-            view: function (vnode) {
-               return  m('.address-group', [
-                    m('span.separator', ' / '),
-                    m(m.route.Link, {
-                        id: vnode.attrs.id,
-                        class: 'nav-link',
-                        href: vnode.attrs.href,
-                    },  vnode.children)
-                ]);
-            }
+        const address = function (item) {
+            console.log('Navbar nav');
+            return  m('.address-group', [
+                m('span.separator', ' / '),
+                m(m.route.Link, {
+                    class: 'nav-link',
+                    href: item.href,
+                },  item.id)
+            ]);
+        
         }
         return m('.nav-container', this.navItems.map((item) => {
-            return m(address, {
-                id: item.id,
-                href: item.path + item.id,
-            }, item.id)
-        }));
+            return address(item)
+        }))
     },
 };
 

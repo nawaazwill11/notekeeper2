@@ -14,6 +14,7 @@ m.route(document.body, '/', {
     },
     '/groups/:id': {
         render: function (vnode) {
+            console.log('App render');
             return m(Layout, m(GroupView, vnode.attrs))
         }
     }

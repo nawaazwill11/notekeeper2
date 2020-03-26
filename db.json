@@ -1,12 +1,18 @@
 {
     "groups": [
         {
+            "type": "group",
+            "path": "/group/",
             "id": "group-1"
         },
         {
+            "type": "group",
+            "path": "/group/",
             "id": "group-2"
         },
         {
+            "type": "group",
+            "path": "/group/",
             "id": "group-3"
         }
     ]

@@ -4,19 +4,12 @@ import Group from '../model/Group';
 import Navbar from './Navbar';
 
 const GroupView = {
-    oninit: function (vnode) { 
-        const index = Navbar.navItems.findIndex(({type}) => type === 'group');
-        if (index > -1) {
-            Navbar.navItems.splice(index, 1);
-        }
-        Navbar.navItems.push({
-            path: '/groups/',
-            id: vnode.attrs.id,
-        });
-        console.log(Navbar.navItems);
+    oninit: function (vnode) {
+        
     },
+    current: {},
     view: function () {
-        console.log('viewing');
+        console.log('groupview view');
         return m('.note-container', 'Some notes');
     }
 }
