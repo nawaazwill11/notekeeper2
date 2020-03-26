@@ -1,18 +1,24 @@
 {
-    "groups": [
+    "root": [
+        {
+            "path": "/",
+            "name": "notekeeper"
+        }
+    ],
+    "group": [
         {
             "type": "group",
-            "path": "/group/",
+            "path": "/groups/",
             "id": "group-1"
         },
         {
             "type": "group",
-            "path": "/group/",
+            "path": "/groups/",
             "id": "group-2"
         },
         {
             "type": "group",
-            "path": "/group/",
+            "path": "/groups/",
             "id": "group-3"
         }
     ]

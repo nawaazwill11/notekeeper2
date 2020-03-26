@@ -1,21 +1,17 @@
 import m from 'mithril';
 
-import GroupList from './views/GroupList';
-import GroupView from './views/GroupView';
-import Layout from './views/Layout';
-
+import HomeController from './controller/HomeController';
+import GroupController from './controller/GroupController';
 
 m.route(document.body, '/', {
     '/': {
         render: function () {
-            console.log('/');
-            return m(Layout, m(GroupList))
+            return m(HomeController);
         }
     },
     '/groups/:id': {
         render: function (vnode) {
-            console.log('App render');
-            return m(Layout, m(GroupView, vnode.attrs))
+            return m(GroupController, vnode.attrs);
         }
-    }
+    },
 });

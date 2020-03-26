@@ -3,7 +3,6 @@ import m from 'mithril';
 const url = 'https://localhost:8000';
 
 const Group = {
-    list: [],
     loadList: function () {
         m.request({
             method: 'GET',
@@ -11,7 +10,8 @@ const Group = {
             withCredentials: false
         })
         .then((data) => {
-            Group.list = data.groups;
+            console.log(typeof(data));
+            Group.list = data;
         })
         .catch((error) => console.log(error));
     }
